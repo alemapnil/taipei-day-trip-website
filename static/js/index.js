@@ -51,7 +51,6 @@ function emptyReply(){
 
 }
 
-
 async function getValue(url){
     try{
         let res =  await fetch(url) // fetch(url) is a promise, so we should wait until fullfilled. res is a response object.
@@ -65,6 +64,8 @@ async function getValue(url){
 
 async function ajax(url){
     console.log('fetch',url)
+
+    while (true){
     let ajaxBack = await getValue(url)
     console.log(ajaxBack,'ajaxBack')
 
@@ -76,16 +77,22 @@ async function ajax(url){
             let spotID = row['id'], spoturl = row['images'][0], spotname = row['name'], spotmrt = row['mrt'], spotcate = row['category'];
             siteDiv(spotID, spoturl, spotname, spotmrt, spotcate)
         }
+        break
     }
-    else{
+    else if (Object.keys(d_list).length === 0 && nextPage === null){
         console.log('空值')
         emptyReply()
-    };
+        break
+    }
+    else{
+        console.log(`ajax 有誤須重抓, nextPage是${nextPage}, d_list是${d_list}`)
+    }
+    }
     console.log('ajaxDone')
 };
 
 
-console.log('start loading')
+console.log('- - - START LOADING - - -')
 
 window.addEventListener('scroll',()=>{
     let ajaxHeight = document.documentElement.scrollHeight;
@@ -115,21 +122,19 @@ window.addEventListener('scroll',()=>{
     }
 })
 
-
-document.getElementById("magnify").addEventListener("click", function(){
+function search_func(){
     console.log('輸入景點名稱',document.getElementById("search").value)
     nexturl = `/api/attractions/?keyword=${document.getElementById("search").value}`
     record = []; /*清空之前搜尋紀錄*/
     ba3_id.innerHTML = '' /*清空之前載入景點*/
     ajax(nexturl) 
-});
-
+}
 
 var nextPage, nexturl
 var record = [];
-
 var ba3_id = document.getElementById('ba3_id');
-
 document.getElementById("search").value = ''
+document.getElementById("magnify").addEventListener('click', search_func)
+
 
 window.onload = ajax('/api/attractions/')

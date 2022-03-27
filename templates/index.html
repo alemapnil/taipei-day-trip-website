@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  type= "text/css" href="/static/css/index.css?v=0.0.28">
-    <link rel="shortcut icon" href="#"></link>
-    <title>首頁</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<div class="box0">
-    <div class="box1">
-        <div class="webisite">台北一日遊</div>
-        <div></div>
-        <div class="frame2">
-            <div class="frame1">
-            <button>預定行程</button>
-            <button>登入/註冊</button>
-            </div>
-        </div>
-    </div> 
-</div>
+{% block link%}
+<link rel="stylesheet"  type= "text/css" href="/static/css/index.css?v=0.0.222">
+{% endblock link%}
 
+{% block title%}
+<title>首頁</title>
+{% endblock title%}
+
+
+{% block content%}
 <div class="box2">
 <div class="ba1">
     <div class="out_slogan">
@@ -44,15 +32,17 @@
 </div> 
 
 
-
 <div class="box3"> 
 <div class="ba3" id="ba3_id"></div>
 </div>
 
 <div class="box4"><span>COPYRIGHT © 2021 台北一日遊</span></div>
 
+{% endblock content%}
 
 
-<script type="text/javascript" src="/static/js/index.js?v=0.01"></script>
+{% block script %}
+<script type="text/javascript" src="/static/js/index.js?v=0.08"></script>
+{% endblock  script%}
 </body>
 </html>
