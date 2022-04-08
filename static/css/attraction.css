@@ -1,6 +1,9 @@
 
 .template{
-    display: none
+    display: none;
+}
+.wrapper{
+    min-height: 100%;
 }
 
 .load{
@@ -240,6 +243,8 @@ hr{
 .infors div{
     width: 1180px;
 }
+
+
 
 .des{
     font-size: 16px;
