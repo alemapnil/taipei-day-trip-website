@@ -29,19 +29,19 @@ function Carousel() {
 }
 
 //獲取標籤
-let slider = document.getElementById('slider')
-let slider_main = document.getElementById('slider_main')
-let allBoxes = slider_main.children
+let slider = document.getElementById("slider");
+let slider_main = document.getElementById("slider_main");
+let allBoxes = slider_main.children;
 
-let slider_index = document.getElementById('slider_index')
-let dot_list = slider_index.children
+let slider_index = document.getElementById("slider_index");
+let dot_list = slider_index.children;
 
-let next = document.getElementById('next')
-let prev = document.getElementById('prev')
-let iNow
+let next = document.getElementById("next");
+let prev = document.getElementById("prev");
+let iNow;
 let num = 0,
-  timer
-console.log('start carousel', allBoxes, dot_list)
+  timer;
+console.log("start carousel", allBoxes, dot_list);
 
 //change是封裝一個函數，根據一個數字參數，顯示指定圖片
 function change(n) {
@@ -52,67 +52,67 @@ function change(n) {
   //根據參數n，加黑點於圓點上
 
   for (let i = 0; i < allBoxes.length; i++) {
-    allBoxes[i].style.display = 'none'
-    dot_list[i].className = 'not_current'
+    allBoxes[i].style.display = "none";
+    dot_list[i].className = "not_current";
   }
 
-  dot_list[n].className = 'current'
-  allBoxes[n].style.display = 'block'
+  dot_list[n].className = "current";
+  allBoxes[n].style.display = "block";
 }
 
 function setTimer() {
   timer = setInterval(() => {
     //先讓所有圖片遮蔽，再顯示索引位置的圖片，播放到最後再從第一張顯示起
-    num++
+    num++;
     for (let i = 0; i < allBoxes.length; i++) {
-      allBoxes[i].style.display = 'none'
+      allBoxes[i].style.display = "none";
     }
     if (num === allBoxes.length) {
-      num = 0
+      num = 0;
     }
-    change(num)
-  }, 3000)
+    change(num);
+  }, 3000);
 }
 
-setTimer()
+setTimer();
 //游標點擊事件: 獲取所有圓點，綁定事件
 for (let i = 0; i < allBoxes.length; i++) {
   //綁定圓點與圖片，點擊時圓點變黑，背景圖也要切換。圓點與背景圖索引序號需相同
-  dot_list[i].addEventListener('click', function () {
-    num = parseInt(this.getAttribute('data'))
-    console.log('click', num)
-    change(num)
-  })
+  dot_list[i].addEventListener("click", function () {
+    num = parseInt(this.getAttribute("data"));
+    console.log("click", num);
+    change(num);
+  });
 }
 
 //游標點擊事件: 獲取右箭頭，綁定事件
-next.addEventListener('click', function () {
-  console.log('leave', num)
-  num++
+next.addEventListener("click", function () {
+  console.log("leave", num);
+  num++;
   if (num === allBoxes.length) {
-    num = 0
+    num = 0;
   }
-  console.log('to next', num)
-  change(num)
-})
+  console.log("to next", num);
+  change(num);
+});
 
 //游標點擊事件: 獲取左箭頭，綁定事件
-prev.addEventListener('click', function () {
-  console.log('leave', num)
-  num--
+prev.addEventListener("click", function () {
+  console.log("leave", num);
+  num--;
   if (num === -1) {
-    num = allBoxes.length - 1
+    num = allBoxes.length - 1;
   }
-  console.log('to prev', num)
-  change(num)
-})
+  console.log("to prev", num);
+  change(num);
+});
 
-slider.addEventListener('mousemove', function () {
-  this.style.cursor = 'grab'
-  console.log('in', num)
-  clearInterval(timer)
-})
-slider.addEventListener('mouseout', function () {
-  console.log('out', num)
-  setTimer()
-})
+slider.addEventListener("mousemove", function () {
+  this.style.cursor = "grab";
+  console.log("in", num);
+  clearInterval(timer);
+});
+slider.addEventListener("mouseout", function () {
+  console.log("out", num);
+  setTimer();
+});

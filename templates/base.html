@@ -1,97 +1,149 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/static/img/tripicon.png">
-    <link rel="stylesheet"  type= "text/css" href="/static/css/base.css?v=0.0.312">
-    <meta property="og:image" content="https://d3i2i3wop7mzlm.cloudfront.net/taipei_day_trip/tripicon.png">
-    <meta property="og:title" content="台北一日遊">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/static/img/tripicon.png"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/base.css?v=0.0.312"
+    />
+    <meta
+      property="og:image"
+      content="https://d3i2i3wop7mzlm.cloudfront.net/taipei_day_trip/tripicon.png"
+    />
+    <meta property="og:title" content="台北一日遊" />
 
-    {% block link%}{% endblock link%}
-    {% block title%}{% endblock title%}
-</head>
-<body>
+    {% block link%}{% endblock link%} {% block title%}{% endblock title%}
+  </head>
+  <body>
+    <div class="overlay"></div>
 
-<div class="overlay"></div>
-
-<div class="box0">
-    <div class="box1">
-        <div class="webisite"><a href="/" >台北一日遊</a></div>
+    <div class="box0">
+      <div class="box1">
+        <div class="webisite"><a href="/">台北一日遊</a></div>
         <div></div>
         <div class="frame2">
-            <div class="frame1">
-            <button id ='book'>預定行程</button>
+          <div class="frame1">
+            <button id="book">預定行程</button>
             <button id="upright"></button>
-            </div>
+          </div>
         </div>
-    </div> 
-</div>
+      </div>
+    </div>
 
+    <div class="window">
+      <div class="login">
+        <div class="decorate"></div>
+        <form class="main" data="1" method="POST">
+          <div class="header">
+            登入會員帳號
+            <div class="close">&times;</div>
+          </div>
 
-<div class = "window">
-<div class="login">   
-    <div class="decorate"></div> 
-    <form class="main" data="1" method="POST">
-        <div class="header">登入會員帳號<div class = "close">&times;</div></div>
-        
-        <label data="lab_0">
-            <input type='text' name="email" class="email" placeholder="輸入電子信箱"  title='須為電子信箱格式' />
-            <img class='invalid' src='/static/img/cross.png'/>
-            <img class='valid' src='/static/img/tick.png'/>
-        </label>
-        
-        <label data="lab_1">
-            <input type='password' name ="password" class="password" placeholder="輸入密碼" title='須為長度4至8的文字字元' pattern="^[\w]{4,8}$" />
-            <img class='invalid' src='/static/img/cross.png'/>
-            <img class='valid' src='/static/img/tick.png'/>
-        </label>
+          <label data="lab_0">
+            <input
+              type="text"
+              name="email"
+              class="email"
+              placeholder="輸入電子信箱"
+              title="須為電子信箱格式"
+            />
+            <img class="invalid" src="/static/img/cross.png" />
+            <img class="valid" src="/static/img/tick.png" />
+          </label>
 
-        <input type='submit' class="enter"  value="登入帳戶"/>
-        <div class= "prompt"><span></span></div>
-        <div class="inform"><span>還沒有帳戶？<span class = "another" id = "register">點此註冊</span></span></div>
-    </form> 
-</div>
+          <label data="lab_1">
+            <input
+              type="password"
+              name="password"
+              class="password"
+              placeholder="輸入密碼"
+              title="須為長度4至12的文字字元"
+              pattern="^[\w]{4,12}$"
+            />
+            <img class="invalid" src="/static/img/cross.png" />
+            <img class="valid" src="/static/img/tick.png" />
+          </label>
 
-<div class="register">   
-    <div class="decorate"></div> 
-    <form  class="master" data="2" method="POST">
-        <div class="header">註冊會員帳號<div class = "close">&times;</div></div>
+          <input type="submit" class="enter" value="登入帳戶" />
+          <div class="prompt"><span></span></div>
+          <div class="inform">
+            <span
+              >還沒有帳戶？<span class="another" id="register"
+                >點此註冊</span
+              ></span
+            >
+          </div>
+        </form>
+      </div>
 
-        <label data="lab_2">
-            <input type='text' name ="name" class="name" placeholder="輸入姓名" title='3~8個英文字母、數字、底線，或2~8個中文字' />
-            <img class='invalid' src='/static/img/cross.png'/>
-            <img class='valid' src='/static/img/tick.png'/>
-        </label>
+      <div class="register">
+        <div class="decorate"></div>
+        <form class="master" data="2" method="POST">
+          <div class="header">
+            註冊會員帳號
+            <div class="close">&times;</div>
+          </div>
 
-        <label data="lab_3">
-            <input type='text' name="email" class="email" placeholder="輸入電子信箱"  title='須為電子信箱格式'/>
-            <img class='invalid' src='/static/img/cross.png'/>
-            <img class='valid' src='/static/img/tick.png'/>
-        </label>
-        
-        <label data="lab_4">
-            <input type='password' name ="password" class="password" placeholder="輸入密碼" title='須為長度4至8的文字字元'/>
-            <img class='invalid' src='/static/img/cross.png'/>
-            <img class='valid' src='/static/img/tick.png'/>
-        </label>
+          <label data="lab_2">
+            <input
+              type="text"
+              name="name"
+              class="name"
+              placeholder="輸入姓名"
+              title="3~8個英文字母、數字、底線，或2~8個中文字"
+            />
+            <img class="invalid" src="/static/img/cross.png" />
+            <img class="valid" src="/static/img/tick.png" />
+          </label>
 
-        <input type='submit' class="enter"  value="註冊新帳戶"/>
-        <div class= "prompt" style="display: none;"><span></span></div>
-        <div class="inform"><span>已經有帳戶了？<span class = "another" id = "login">點此登入</span></span></div>
-    </form> 
-</div>
-</div>
+          <label data="lab_3">
+            <input
+              type="text"
+              name="email"
+              class="email"
+              placeholder="輸入電子信箱"
+              title="須為電子信箱格式"
+            />
+            <img class="invalid" src="/static/img/cross.png" />
+            <img class="valid" src="/static/img/tick.png" />
+          </label>
 
+          <label data="lab_4">
+            <input
+              type="password"
+              name="password"
+              class="password"
+              placeholder="輸入密碼"
+              title="須為長度4至12的文字字元"
+              pattern="^[\w]{4,12}$"
+            />
+            <img class="invalid" src="/static/img/cross.png" />
+            <img class="valid" src="/static/img/tick.png" />
+          </label>
 
+          <input type="submit" class="enter" value="註冊新帳戶" />
+          <div class="prompt" style="display: none"><span></span></div>
+          <div class="inform">
+            <span
+              >已經有帳戶了？<span class="another" id="login"
+                >點此登入</span
+              ></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
 
+    {% block content%}{% endblock content%}
 
-
-
-{% block content%}{% endblock content%}
-
-
-<script type="text/javascript" src="/static/js/base.js?v=0.0.03"></script>
-{% block script %}{% endblock  script%}
-</body>
+    <script type="text/javascript" src="/static/js/base.js?v=0.0.03"></script>
+    {% block script %}{% endblock script%}
+  </body>
 </html>

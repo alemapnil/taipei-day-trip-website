@@ -1,82 +1,82 @@
-var orderNumber = window.location.href.split('number=').at(-1)
+var orderNumber = window.location.href.split("number=").at(-1);
 async function getFetch(headers) {
   try {
     let res = await fetch(`/api/orders?number=${orderNumber}`, {
       headers: headers,
-    })
+    });
     if (res.status === 200) {
-      let data = await res.json()
-      return data
+      let data = await res.json();
+      return data;
     }
   } catch (e) {
-    console.log('GET token /api/booking error >>', e)
+    console.log("GET token /api/booking error >>", e);
   }
 }
 
 async function thankyou() {
   headers = {
-    'Content-Type': 'application/json; charset=UTF-8',
-    Accept: 'application/json',
+    "Content-Type": "application/json; charset=UTF-8",
+    Accept: "application/json",
     Authorization: `Bearer ${access_token}`,
-  }
-  let dict = await getFetch(headers)
-  if ('data' in dict) {
-    if (dict['data'] === null) {
+  };
+  let dict = await getFetch(headers);
+  if ("data" in dict) {
+    if (dict["data"] === null) {
       document.querySelector(
-        '.message',
-      ).innerHTML = `沒有此筆訂單 ${orderNumber}`
-    } else if (dict['data'] === false) {
-      window.location.href = '/'
+        ".message"
+      ).innerHTML = `沒有此筆訂單 ${orderNumber}`;
+    } else if (dict["data"] === false) {
+      window.location.href = "/";
     } else {
     }
-  } else if ('number' in dict) {
-    let userName = dict['contact']['name'],
-      status = dict['status']
+  } else if ("number" in dict) {
+    let userName = dict["contact"]["name"],
+      status = dict["status"];
 
     if (status === 0) {
-      document.querySelector('.remind').style.display = 'block'
+      document.querySelector(".remind").style.display = "block";
       document.querySelector(
-        '.message',
-      ).innerHTML = `${userName}，您付款成功，訂單編號為${orderNumber}`
+        ".message"
+      ).innerHTML = `${userName}，您付款成功，訂單編號為${orderNumber}`;
       document.querySelectorAll(
-        '.spot',
-      )[0].innerHTML = `地點: ${dict['trip']['attraction']['name']}`
+        ".spot"
+      )[0].innerHTML = `地點: ${dict["trip"]["attraction"]["name"]}`;
       document.querySelectorAll(
-        '.spot',
-      )[1].innerHTML = `地址: ${dict['trip']['attraction']['address']}`
+        ".spot"
+      )[1].innerHTML = `地址: ${dict["trip"]["attraction"]["address"]}`;
       document.querySelectorAll(
-        '.spot',
-      )[2].innerHTML = `日期: ${dict['trip']['date']}`
+        ".spot"
+      )[2].innerHTML = `日期: ${dict["trip"]["date"]}`;
       document.querySelectorAll(
-        '.spot',
-      )[3].innerHTML = `時段: ${dict['trip']['time']}`
+        ".spot"
+      )[3].innerHTML = `時段: ${dict["trip"]["time"]}`;
     } else {
       document.querySelector(
-        '.message',
-      ).innerHTML = `${userName}，您付款失敗，訂單編號為${orderNumber}，請洽客服`
+        ".message"
+      ).innerHTML = `${userName}，您付款失敗，訂單編號為${orderNumber}，請洽客服`;
     }
   } else {
-    console.log('unknown problem', dict)
-    document.querySelector('.message').innerHTML = `${dict['message']}`
+    console.log("unknown problem", dict);
+    document.querySelector(".message").innerHTML = `${dict["message"]}`;
   }
-  document.querySelector('.load').style.display = 'none'
-  document.querySelector('.template').style.display = 'flex'
+  document.querySelector(".load").style.display = "none";
+  document.querySelector(".template").style.display = "flex";
 }
 
 ///等待載入頁面...
-document.getElementsByTagName('body')[0].classList.add('body')
-document.getElementsByTagName('html')[0].classList.add('html')
+document.getElementsByTagName("body")[0].classList.add("body");
+document.getElementsByTagName("html")[0].classList.add("html");
 
 if (access_token) {
-  setTimeout(thankyou, 700)
+  setTimeout(thankyou, 700);
 } else {
   async function toHome() {
     headers = {
-      'Content-Type': 'application/json; charset=UTF-8',
-      Accept: 'application/json',
-    }
-    let dict = await getFetch(headers)
-    window.location.href = '/'
+      "Content-Type": "application/json; charset=UTF-8",
+      Accept: "application/json",
+    };
+    let dict = await getFetch(headers);
+    window.location.href = "/";
   }
-  toHome()
+  toHome();
 }
