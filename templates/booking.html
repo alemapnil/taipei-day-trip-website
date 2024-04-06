@@ -1,88 +1,79 @@
-{% extends 'base.html' %}
-
-
-{% block link%}
-<link rel="stylesheet"  type= "text/css" href="/static/css/booking.css?v=0.0.40">
-{% endblock link%}
-
-
-{% block title%}
+{% extends 'base.html' %} {% block link%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/static/css/booking.css?v=0.0.40"
+/>
+{% endblock link%} {% block title%}
 <title>預定行程 | 台北一日遊</title>
-{% endblock title%}
-
-
-
-{% block content%}
-<div id='load' class="frontPage"><img src="/static/img/load.gif" class='gif'/></div>
+{% endblock title%} {% block content%}
+<div id="load" class="frontPage">
+  <img src="/static/img/load.gif" class="gif" />
+</div>
 
 <div class="whole">
-<div class="Bheader"></div>
-<div class="noData">目前沒有任何待預訂的行程</div>
+  <div class="Bheader"></div>
+  <div class="noData">目前沒有任何待預訂的行程</div>
 
-<div class="Bsection">
-<div class="Bpicture"></div>
-<div class="Bdescrip">
-    <div class="item_t"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-</div>
-</div>
+  <div class="Bsection">
+    <div class="Bpicture"></div>
+    <div class="Bdescrip">
+      <div class="item_t"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
 
-<hr>
+  <hr />
 
-<form class="Bcontact">
+  <form class="Bcontact">
     <div>您的聯絡資訊</div>
-    <div>聯絡姓名：<input class='name' type='text'/></div>
-    <div>連絡信箱：<input class='email' type='text'/></div>
-    <div>手機號碼：<input class='phone' type='text'/></div>
-    <div style="margin-top: 20px;">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div>
-</form>
+    <div>聯絡姓名：<input class="name" type="text" /></div>
+    <div>連絡信箱：<input class="email" type="text" /></div>
+    <div>手機號碼：<input class="phone" type="text" /></div>
+    <div style="margin-top: 20px">
+      請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
+    </div>
+  </form>
 
-
-<hr>
-<form class="Bpayment">
+  <hr />
+  <form class="Bpayment">
     <div>信用卡付款資訊</div>
     <div class="spaceRow"></div>
     <div class="pay">
-        <div>卡片號碼：</div>
-        <div class="tpfield" id = "card-number"></div>
+      <div>卡片號碼：</div>
+      <div class="tpfield" id="card-number"></div>
     </div>
 
     <div class="pay">
-        <div>過期時間：</div>
-        <div class="tpfield" id = "card-expiration-date"></div>
+      <div>過期時間：</div>
+      <div class="tpfield" id="card-expiration-date"></div>
     </div>
-    
+
     <div class="pay">
-        <div>驗證密碼：</div>
-        <div class="tpfield" id = "card-ccv"></div>
+      <div>驗證密碼：</div>
+      <div class="tpfield" id="card-ccv"></div>
     </div>
+  </form>
+  <hr />
 
-</form>
-<hr>
-
-<div class="Bconfirm">
+  <div class="Bconfirm">
     <div></div>
     <div class="rightBox">
-    <div class="confirmPrice"></div>
-    <button class="confirmBtn">確認訂購並付款</button>
+      <div class="confirmPrice"></div>
+      <button class="confirmBtn">確認訂購並付款</button>
     </div>
+  </div>
 </div>
-
-
-</div> 
 <!-- 上面是whole的/div -->
 
-
-
-<div id = 'footer' class="notfull"><div>COPYRIGHT © <span></span> 台北一日遊</div></div>
-{% endblock content%}
-
-
-{% block script %}
+<div id="footer" class="notfull">
+  <div>COPYRIGHT © <span></span> 台北一日遊</div>
+</div>
+{% endblock content%} {% block script %}
 <script src="https://js.tappaysdk.com/tpdirect/v5.8.0"></script>
 <script type="text/javascript" src="/static/js/booking.js?v=0.16"></script>
 
-{% endblock  script%}
+{% endblock script%}
