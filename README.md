@@ -130,3 +130,4 @@ sudo apt-get install python3-certbot-nginx
 sudo certbot --nginx
 ```
 ## How to Use the Web?
+https://github.com/alemapnil/meetgather/assets/52197443/96c0b450-e75e-47f2-9f95-823c49411a35
