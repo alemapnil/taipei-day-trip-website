@@ -1,11 +1,15 @@
-import json, os, mysql.connector.pooling, traceback, hashlib, re, requests, sys
+import json
+import os
+import mysql.connector.pooling
+import traceback
+import hashlib
+import re
+import requests
+import sys
 from unittest import result
 from time import sleep, time
-from dotenv import load_dotenv
-from dotenv import dotenv_values
-from datetime import timedelta
-from datetime import datetime
-
+from dotenv import load_dotenv, dotenv_values
+from datetime import timedelta, datetime
 
 from flask import *
 from flask_jwt_extended import (
@@ -61,7 +65,8 @@ def tapPay(
     else:
         msg = "付款失敗"
 
-    result = {"data": {"number": number, "payment": {"status": status, "message": msg}}}
+    result = {"data": {"number": number, "payment": {
+        "status": status, "message": msg}}}
 
 
 def orderResponse(
@@ -173,7 +178,8 @@ def order_post():
         print(CN1.connection_id, "orders POST pool ID create")
         cursor = CN1.cursor()
 
-        prime, price = request.get_json()["prime"], request.get_json()["order"]["price"]
+        prime, price = request.get_json()["prime"], request.get_json()[
+            "order"]["price"]
         attId, attName = (
             request.get_json()["order"]["trip"]["attraction"]["id"],
             request.get_json()["order"]["trip"]["attraction"]["name"],
@@ -361,7 +367,8 @@ def book_post():
                 idExist = cursor.fetchone()  # tuple or None
 
                 if idExist is None:
-                    data = {"error": True, "message": f"輸入錯誤，無此景點 : {attractionId}"}
+                    data = {"error": True,
+                            "message": f"輸入錯誤，無此景點 : {attractionId}"}
                 elif time != "早上9點到中午12點" and time != "下午2點到6點":
                     data = {"error": True, "message": f"輸入錯誤，無此時段 : {time}"}
                 elif price != 2000 and price != 2500:
@@ -379,7 +386,8 @@ def book_post():
 
                     insert = """ insert into `member_bookrecord` (`PersonEmail`, `attractionId`, `date`, `time`,`price`) values(%s,%s,%s,%s,%s);"""
                     cursor.execute(
-                        insert, (decrypt["email"], attractionId, date, time, price)
+                        insert, (decrypt["email"],
+                                 attractionId, date, time, price)
                     )
 
                     data = {"ok": True}
@@ -460,7 +468,8 @@ def get():
                     """
                 cursor.execute(sql, (decrypt["email"],))
                 one = cursor.fetchone()  # tuple or None
-                data = {"data": {"id": one[0], "name": one[1], "email": one[2]}}
+                data = {"data": {"id": one[0],
+                                 "name": one[1], "email": one[2]}}
     except:
         data = {"error": True, "message": "伺服器內部錯誤"}
         print("/api/user GET 發生錯誤", traceback.format_exc())
@@ -487,8 +496,10 @@ def post():
                 request.get_json()["password"],
             )
 
-            pat_name = re.compile(r"^([a-zA-Z0-9_]{3,8}|[\u4e00-\u9fa5]{2,8})$")
-            pat_email = re.compile(r"^([\w]+)@([\w]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$")
+            pat_name = re.compile(
+                r"^([a-zA-Z0-9_]{3,8}|[\u4e00-\u9fa5]{2,8})$")
+            pat_email = re.compile(
+                r"^([\w]+)@([\w]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$")
             pat_password = re.compile(r"^[\w]{4,12}$")
 
             # 審核成功就進資料庫
@@ -497,7 +508,8 @@ def post():
                 and pat_email.match(email_f2)
                 and pat_password.match(password_f2)
             ):
-                password_f2 = hashlib.sha256(password_f2.encode("utf-8")).hexdigest()
+                password_f2 = hashlib.sha256(
+                    password_f2.encode("utf-8")).hexdigest()
 
                 sql = """SELECT * FROM `trip_members`
                             WHERE `email` = %s
@@ -506,7 +518,8 @@ def post():
                 one = cursor.fetchone()  # tuple or None
                 if one is None:
                     cursor.execute(
-                        f"insert into `trip_members` (`name`, `email`, `password`) values('{name_f2}','{email_f2}','{password_f2}');"
+                        f"insert into `trip_members` (`name`, `email`, `password`) values('{
+                            name_f2}','{email_f2}','{password_f2}');"
                     )
                 else:
                     anchor = "duplicate"
@@ -545,7 +558,8 @@ def patch():
                 request.get_json()["email"],
                 request.get_json()["password"],
             )
-            password_f1 = hashlib.sha256(password_f1.encode("utf-8")).hexdigest()
+            password_f1 = hashlib.sha256(
+                password_f1.encode("utf-8")).hexdigest()
 
             sql = """SELECT * FROM `trip_members`
                         WHERE `email` = %s and `password`= %s
