@@ -42,9 +42,28 @@ Deploy MySQL to store and preserve data.
 * Allocate and associate elastic IP address
 * Go to Security Groups in EC2 and set up inbound rules, which is opening the port 3000, 80, 443, 3306
 * Login EC2 and operate with Linux command line.
+* The project needs to be run with .env file, so operator should ask authour for .env and put .env in a folder
 ### GitHub
-
-
+* Install git on EC2
+```bash
+sudo apt-get install git
+```
+* See the version of git
+```bash
+git --version
+```
+* Initialize empty Git repository in the folder containing .env
+```bash
+git init
+```
+* Pull the files from the remote branch 
+```bash
+git pull https://github.com/alemapnil/taipei-day-trip-website.git
+```
+* Run the application in the background with nohup
+```bash
+nohup python3 app.py &
+```
 ### Domain name registrar
 * Set up domain name and subdomain with elastic IP in A record
 ### Nginx
@@ -80,7 +99,7 @@ server {
         listen 80;
         server_name taipeitrip.meetgather.site;
         location / {
-        proxy_pass      http://elastic IP:3000;
+        proxy_pass      http://elastic IP:3000/;
         proxy_redirect  off;
 
         proxy_set_header   Host                 $host;
