@@ -42,7 +42,6 @@ Deploy MySQL to store and preserve data.
 * Allocate and associate elastic IP address
 * Go to Security Groups in EC2 and set up inbound rules, which is opening the port 3000, 80, 443, 3306
 * Login EC2 and operate with Linux command line.
-* The project needs to be run with .env file, so operator should ask authour for .env and put .env in a folder
 ### GitHub
 * Install git on EC2
 ```bash
@@ -52,14 +51,11 @@ sudo apt-get install git
 ```bash
 git --version
 ```
-* Initialize empty Git repository in the folder containing .env
+* Clone git of the project on EC2
 ```bash
-git init
+git clone https://github.com/alemapnil/taipei-day-trip-website.git
 ```
-* Pull the files from remote branch 
-```bash
-git pull https://github.com/alemapnil/taipei-day-trip-website.git
-```
+* The project needs to be run with .env file, so operator should ask authour for .env and put .env in the folder of taipei-day-trip-website
 * Run the application in the background with nohup, and you can visit the web through _http://elasticIP:3000/_
 ```bash
 nohup python3 app.py &
