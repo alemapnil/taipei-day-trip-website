@@ -56,6 +56,7 @@ git --version
 git clone https://github.com/alemapnil/taipei-day-trip-website.git
 ```
 * The project needs to be run with .env file, so operator should ask authour for .env and put .env in the folder of _taipei-day-trip-website_
+* Install the relevant packages which are shown on the top of _app.py_ and _second.py_ with pip 
 * Run the application in the background with nohup, and you can visit the web through _http://elasticIP:3000/_
 ```bash
 nohup python3 app.py &
