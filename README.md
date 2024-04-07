@@ -55,7 +55,7 @@ git --version
 ```bash
 git clone https://github.com/alemapnil/taipei-day-trip-website.git
 ```
-* The project needs to be run with .env file, so operator should ask authour for .env and put .env in the folder of taipei-day-trip-website
+* The project needs to be run with .env file, so operator should ask authour for .env and put .env in the folder of _taipei-day-trip-website_
 * Run the application in the background with nohup, and you can visit the web through _http://elasticIP:3000/_
 ```bash
 nohup python3 app.py &
