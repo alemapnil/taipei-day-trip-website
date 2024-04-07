@@ -60,7 +60,7 @@ git init
 ```bash
 git pull https://github.com/alemapnil/taipei-day-trip-website.git
 ```
-* Run the application in the background with nohup, and you can visit the web through _http://elastic IP:3000/_
+* Run the application in the background with nohup, and you can visit the web through _http://elasticIP:3000/_
 ```bash
 nohup python3 app.py &
 ```
