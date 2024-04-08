@@ -63,7 +63,7 @@ git clone https://github.com/alemapnil/taipei-day-trip-website.git
 nohup python3 app.py &
 ```
 ### Domain name registrar
-* Set up domain name and subdomain with elastic IP in A record
+* Connect domain name and subdomain with elastic IP in A record
 ### Nginx
 * Install nginx on EC2 and run
 ```bash
