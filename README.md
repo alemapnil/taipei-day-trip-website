@@ -40,7 +40,7 @@ Deploy MySQL to store and preserve data.
 ### EC2
 * Create AWS account and launch EC2 instance of Ubuntu 22.04.4
 * Allocate and associate elastic IP address
-* Go to Security Groups in EC2 and set up inbound rules, which is opening the port 3000, 80, 443, 3306
+* Go to Security Groups in EC2 and set up inbound rules, which is opening the port 3000, 80, 443, 3306  
   3000 is port of the web, 80 is port of HTTP, 443 is port of HTTPS, 3306 is port of RDS.
 * Login EC2 and operate with Linux command line.
 ### GitHub
