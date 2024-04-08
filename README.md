@@ -28,7 +28,7 @@ Create a domain name with subdomain, taipeitrip.meetgather.site, on GoDaddy and 
 * ###### SSL certificate
 Secure URL with https by Certbot
 * ###### Third-party payment
-Make use of testing version of TapPay, a third-party payment processor in Taiwan, to complete booking order.
+Make use of testing environment of TapPay, a third-party payment processor in Taiwan, to complete booking order.
 * ###### GitHub
 Pull the files of project from GitHub to run the application.
 ### AWS 
