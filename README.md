@@ -11,7 +11,7 @@ Use async、await to fetch api and get data from server
 * ###### Jinja  
 Simplify HTML templates with Jinja
 * ###### RWD  
-Adapt web for any size of screen
+Adapt web to any size of screen
 ### Back ends
 * ###### Python Flask
 Establish server with Flask
