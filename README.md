@@ -33,7 +33,7 @@ Make use of testing environment of TapPay, a third-party payment processor in Ta
 Pull the files of project from GitHub to run the application.
 ### AWS 
 * ###### EC2
-Develop with a computer on EC2, using the Ubuntu 22.04.4 LTS system.
+Run the application on EC2, using Ubuntu 22.04.4 LTS system.
 * ###### RDS
 Deploy MySQL to store and preserve data.
 ## How to run the project?
