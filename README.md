@@ -24,7 +24,7 @@ Produce a limited token when an user login, which is a credential for server to 
 * ###### Nginx
 Utilize a reverse proxy to conceal IP address of the web with a domain name
 * ###### Domain Name
-Create a domain name, meetgather.site, on GoDaddy and connecting it with IP address of Meetgather
+Create a domain name with subdomain, taipeitrip.meetgather.site, on GoDaddy and connecting it with IP address of _Taipeitrip_
 * ###### SSL certificate
 Secure URL with https by Certbot
 * ###### Third-party payment
