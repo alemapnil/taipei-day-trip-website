@@ -1,4 +1,4 @@
-# [Taipeitrip](https://taipeitrip.meetgather.site/)
+# [TaipeiTrip](https://taipeitrip.meetgather.site/)
 A platform you’re able to search tourist spots in Taipei and book schedules to let tour guide guide the attractions you like.
 ## Motivation
 I'd like to display my full-stack skills which I learned from a bootcamp of soft engineer. 
